@@ -6,122 +6,14 @@
 
 \begin{document}
 \section{Introducción}
-Éste manual pretende introducir a los usuarios en el manejo del software \textbf{Dune}, 
-que se puede ubicar en la dirección 
-\url{https://dune-project.org/}, software de simulación numérica DUNE (Distributed and Unified Numerics Environment), 
-proyecto de código abierto que proporciona una infraestructura flexible y 
-modular para la solución de ecuaciones diferenciales parciales.
-
+\input{introduccion}
 \section{Instalación}
-
-Para la correr el software DUNE, vamos a utilizar el repositorio \url{https://github.com/cpp-review-dune/dune-learn},
-diseñado para funcionar en la nube, utilizando las ventajas que nos ofrece \url{https://www.gitpod.io/}, en el 
-que su puede utilizar una imagen docker, que contiene las dependencias y repositorios necesarios para su funcionamiento.
-
-En la sección de C++, se presentará \textbf{dunepdelab}, que fue estudiada en el curso presentado en el año 
-$2022$, de manera remota y cuya link está en: \url{https://dune-pdelab-course.readthedocs.io/en/latest/intro.html},
-y en la sección de Python, utilizaremos el Jupyter Notebook para introducir el uso de \textbf{dunefem}.
-\section{C++}
-\subsection[Prier Proyecto]{Primer proyecto en Dune}
-Para iniciar la ejecución, una vez hemos ingresado a la plataforma y estamos en la nube, debemos ver una imagen similar 
-a la siguiente:
-\begin{center}\label{fig:ingreso}
-	\includegraphics[scale=0.3]{PantallaIngreso.png}
-\end{center}
-Como se puede apreciar, es muy similar a Vscode.  Para hacer mi primer proyecto, en la terminal debo escribir:
-\textcolor{green}{gitpod} \textcolor{blue}{/workspace} \$ duneproject 
-\begin{verbatim}
-
-== Dune project/module generator ==
-
-duneproject will assist you in the creation of a new Dune application.
-During this process a new directory with the name of your project will be
-created. This directory will hold all configuration and Makefiles and a
-simple example application.
-
-1) Name of your new Project? (e.g.: dune-grid): 
-\end{verbatim}
-En ésta parte, debo completar la información de mi proyecto, el nombre vamos a poner por ejemplo \textbf{dune-prueba}, luego
-\begin{verbatim}
-	2) Which modules should this module depend on?
-   The following modules have been found:
-   dune-common dune-geometry dune-uggrid dune-grid dune-localfunctions dune-istl 
-   dune-typetree dune-functions dune-alugrid dune-pdelab dune-fem dune-learn 
-   Enter space-separated list:
-\end{verbatim}
-En éste caso, vamos a usar \textbf{dune-pdelab}, luego pregunta:
-\begin{verbatim}
-	3) Project/Module version? 
-\end{verbatim}
-Por ejemplo puede ser $01$, luego nos pide el email:
-\begin{verbatim}
-	4) Maintainer's email address? maintainer@unal.edu.co 
-\end{verbatim}
-Finalmente, nos pregunta si los datos están correctos:
-\begin{verbatim}
-	creating Project "dune-prueba", version 01 
-which depends on "dune-pdelab"
-with maintainer "maintainer@unal.edu.co"
-Is this information correct? [y/N] y
-\end{verbatim}
-Si los datos son correctos, asignamos ''y'', de lo contrario ''N'', y finalmente enter para iniciar la configuración. Una vez iniciada la configuración,
-se crea una carpeta con el nombre \textbf{dune-prueba}, que fue el nombre del proyecto que asignamos.  Una vez que 
-el proyecto se ha construido, podemos utilizar el comando \begin{verbatim}
-	gitpod /workspace $ ls
-\end{verbatim}
-Dentro del listado debe aparecer la carpeta \textcolor{blue}{dune-prueba}, que si explora dentro de ella, encontrará 
-varios archivos y carpetas.  Se puede dirigir a la siguiente dirección: {\begin{verbatim}
-	cd /workspace/dune-prueba/src $ 
-\end{verbatim}}Cuando liste, encontrará dos archivos \begin{verbatim}
-	CMakeLists.txt  dune-prueba.cc
-\end{verbatim}
-En el primer archivo, usted encuentra lo siguiente:
-\begin{verbatim}
-	add_executable("dune-prueba" dune-prueba.cc)
-	target_link_dune_default_libraries("dune-prueba")
-
-\end{verbatim} 
-Significa que se ha creado un código fuente, que se llama ''dune-prueba.cc'', tiene el mismo nombre del proyecto que 
-creamos, y en el que está escrito nuestro primer programa, el ''Hola mundo de DUNE''.  A continuación se puede apreciar 
-el contenido completo del primer programa :
-
-\begin{listing}[ht!]
-	\inputminted{cpp}{../../src/dune-learn.cc}
-\end{listing}
-
-\immediate\write18{./run.sh}
+\input{instalacion}
+\section{DUNE Project in C++}
+\subsection[Primer Proyecto]{Primer proyecto en Dune}
+\input{dunecpp}
 \subsection{Compilación}
-Para compilar el programa, vamos a crear la  carpeta build, haciendo lo siguiente: 
-\begin{verbatim}
-	gitpod /workspace $ mkdir build
-\end{verbatim}
-Build, se utiliza para construir allí los aspectos necesarios para la compilación del proyecto, y aparecerá después 
-de compilar el archivo ejecutable.  Una vez creada la carpeta, es necesario utilizar el comando \textbf{Cmake}.  En éste caso se 
-indica a cmake que utilice como fuente (''S'' de source) la carpeta \textbf{dune-prueba} y que la construcción de la 
-compilación se va a guardar en la carpeta \textbf{build}, por eso se escribe (''-B'' build) 
-\begin{verbatim}
-	gitpod /workspace $ cmake -S dune-prueba -B build
-\end{verbatim}
-Luego de hacer el proceso, si hacemos una lista utilizando el comando \textbf{ls}, obtendremos dos carpetas, a saber:
-\begin{verbatim}
-	gitpod /workspace $ ls
-	gitpod /workspace $ build dune-prueba
-\end{verbatim}
-Es necesario aclarar, que nuestro código estará en la carpeta \textbf{dune-prueba}, mientras que el ejecutable y 
-todos los archivos necesarios para la compilación están en la carpeta \textbf{build}.  A continuación, ingresamos 
-a la carpeta \textbf{build} y usamos el comando \textbf{make}:
-\begin{verbatim}
-	gitpod /workspace $ cd build
-	gitpod /workspace/build $ make
-\end{verbatim}
-Con lo que se iniciará el proceso de generación del archivo ejecutable, que estará ubicado en éste caso, en 
-la dirección y falta ejecutarlo de la siguiente forma:
-\begin{verbatim}
-	gitpod /workspace/build/src $ ./dune-prueba
-\end{verbatim}
-\begin{listing}[ht!]
-	\inputminted{bash}{dune-learn-1.txt}
-\end{listing}
+\input{compilacion}
 \newpage
 \section{Python}
 

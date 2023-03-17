@@ -1,5 +1,6 @@
 #!/usr/bin/bash
 
-#BUILD_DIR=$(pwd)/build
+REPO_ROOT=$(git rev-parse --show-toplevel)
+BUILD_DIR="${REPO_ROOT}"/build
 
-./../../build/src/dune-learn > dune-learn-1.txt
+[ -d "${BUILD_DIR}" ] && "${BUILD_DIR}"/src/dune-learn >dune-learn-1.txt

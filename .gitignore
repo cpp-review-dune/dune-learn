@@ -1,2 +1,9 @@
 build
-_minted-main
+_minted*
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.synctex.gz

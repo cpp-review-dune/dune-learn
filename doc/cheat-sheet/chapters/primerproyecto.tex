@@ -1,11 +1,11 @@
 \subsection[Primer Proyecto]{Primer proyecto en Dune}
-Para iniciar la ejecución, una vez hemos ingresado a la plataforma y estamos en la nube, debemos ver una imagen similar 
+Para iniciar la ejecución, una vez hemos ingresado a la plataforma y estamos en la nube, debemos ver una imagen similar
 a la siguiente:
 \begin{center}\label{fig:ingreso}
 	\includegraphics[scale=0.3]{PantallaIngreso.png}
 \end{center}
 Como se puede apreciar, es muy similar a Vscode.  Para hacer mi primer proyecto, en la terminal debo escribir:
-\textcolor{green}{gitpod} \textcolor{blue}{/workspace} \$ duneproject 
+\textcolor{green}{gitpod} \textcolor{blue}{/workspace} \$ duneproject
 \begin{verbatim}
 
 == Dune project/module generator ==
@@ -41,11 +41,11 @@ with maintainer "maintainer@unal.edu.co"
 Is this information correct? [y/N] y
 \end{verbatim}
 Si los datos son correctos, asignamos ''y'', de lo contrario ''N'', y finalmente enter para iniciar la configuración. Una vez iniciada la configuración,
-se crea una carpeta con el nombre \textbf{dune-prueba}, que fue el nombre del proyecto que asignamos.  Una vez que 
+se crea una carpeta con el nombre \textbf{dune-prueba}, que fue el nombre del proyecto que asignamos.  Una vez que
 el proyecto se ha construido, podemos utilizar el comando \begin{verbatim}
 	gitpod /workspace $ ls
 \end{verbatim}
-Dentro del listado debe aparecer la carpeta \textcolor{blue}{dune-prueba}, que si explora dentro de ella, encontrará 
+Dentro del listado debe aparecer la carpeta \textcolor{blue}{dune-prueba}, que si explora dentro de ella, encontrará
 varios archivos y carpetas.  Se puede dirigir a la siguiente dirección: {\begin{verbatim}
 	cd /workspace/dune-prueba/src $ 
 \end{verbatim}}Cuando liste, encontrará dos archivos \begin{verbatim}
@@ -55,8 +55,8 @@ En el primer archivo, usted encuentra lo siguiente:
 \begin{verbatim}
 	add_executable("dune-prueba" dune-prueba.cc)
 	target_link_dune_default_libraries("dune-prueba")
-\end{verbatim} 
-Significa que se ha creado un código fuente, que se llama ''dune-prueba.cc'', tiene el mismo nombre del proyecto que 
+\end{verbatim}
+Significa que se ha creado un código fuente, que se llama ''dune-prueba.cc'', tiene el mismo nombre del proyecto que
 creamos, y en el que está escrito nuestro primer programa, el ''Hola mundo de DUNE''.
 
 A continuación se puede apreciar el contenido completo del primer programa :
@@ -64,17 +64,17 @@ A continuación se puede apreciar el contenido completo del primer programa :
 	\inputminted{cpp}{../../src/dune-learn.cc}
 \end{listing}
 \subsection{Compilación}
-Para compilar el programa, se va a generar una carpeta \textit{build}, 
-que se construye a partir del comando \textit{cmake}, ésta carpeta 
-se utiliza para construir allí los aspectos necesarios para la compilación del proyecto, y aparecerá después 
-de utilizar la siguiente instrucción.   
+Para compilar el programa, se va a generar una carpeta \textit{build},
+que se construye a partir del comando \textit{cmake}, ésta carpeta
+se utiliza para construir allí los aspectos necesarios para la compilación del proyecto, y aparecerá después
+de utilizar la siguiente instrucción.
 \begin{verbatim}
 	gitpod /workspace $ cmake -S dune-prueba -B build
 \end{verbatim}
-En éste caso se indica a cmake que utilice como fuente (''S'' de source) la carpeta \textbf{dune-prueba} y 
+En éste caso se indica a cmake que utilice como fuente (''S'' de source) la carpeta \textbf{dune-prueba} y
 que la construcción de la compilación se va a guardar en la carpeta \textbf{build}, por eso se escribe (''-B'' build),
 que significa construya en la carpeta \textit{build}.
-En caso de que se quiera compilar en la misma carpeta se debe utilizar el comando: 
+En caso de que se quiera compilar en la misma carpeta se debe utilizar el comando:
 \begin{verbatim}
 	gitpod /workspace $ cmake -S . -B build
 \end{verbatim}
@@ -83,14 +83,14 @@ Luego de hacer el proceso, si hacemos una lista utilizando el comando \textbf{ls
 	gitpod /workspace $ ls
 	gitpod /workspace $ build dune-prueba
 \end{verbatim}
-Es necesario aclarar, que nuestro código estará en la carpeta \textbf{dune-prueba}, mientras que el ejecutable y 
-todos los archivos necesarios para la compilación están en la carpeta \textbf{build}.  A continuación, ingresamos 
+Es necesario aclarar, que nuestro código estará en la carpeta \textbf{dune-prueba}, mientras que el ejecutable y
+todos los archivos necesarios para la compilación están en la carpeta \textbf{build}.  A continuación, ingresamos
 a la carpeta \textbf{build} y usamos el comando \textbf{make}:
 \begin{verbatim}
 	gitpod /workspace $ cd build
 	gitpod /workspace/build $ make
 \end{verbatim}
-Con lo que se iniciará el proceso de generación del archivo ejecutable, que estará ubicado en éste caso, en 
+Con lo que se iniciará el proceso de generación del archivo ejecutable, que estará ubicado en éste caso, en
 la dirección siguiente y se debe ejecutar de la siguiente forma:
 \begin{verbatim}
 	gitpod /workspace/build/src $ ./dune-prueba

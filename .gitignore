@@ -9,3 +9,4 @@ _minted*
 *.synctex.gz
 *.txt
 .ipynb_checkpoints
+!CMakeLists.txt

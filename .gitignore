@@ -8,3 +8,4 @@ _minted*
 *.pdf
 *.synctex.gz
 *.txt
+.ipynb_checkpoints

@@ -19,7 +19,7 @@ simple example application.
 
 1) Name of your new Project? (e.g.: dune-grid): 
 \end{verbatim}
-En ésta parte, debo completar la información de mi proyecto, el nombre vamos a poner por ejemplo \textbf{dune-prueba}, luego
+En ésta parte, debo completar la información de mi proyecto, el nombre vamos a poner por ejemplo \verb|dune-prueba|, luego
 \begin{verbatim}
 	2) Which modules should this module depend on?
    The following modules have been found:
@@ -27,7 +27,7 @@ En ésta parte, debo completar la información de mi proyecto, el nombre vamos a
    dune-typetree dune-functions dune-alugrid dune-pdelab dune-fem dune-learn 
    Enter space-separated list:
 \end{verbatim}
-En éste caso, vamos a usar \textbf{dune-pdelab}, luego pregunta:
+En éste caso, vamos a usar \verb|dune-pdelab|, luego pregunta:
 \begin{verbatim}
 	3) Project/Module version? 
 \end{verbatim}
@@ -43,7 +43,7 @@ with maintainer "maintainer@unal.edu.co"
 Is this information correct? [y/N] y
 \end{verbatim}
 Si los datos son correctos, asignamos ''y'', de lo contrario ''N'', y finalmente enter para iniciar la configuración. Una vez iniciada la configuración,
-se crea una carpeta con el nombre \textbf{dune-prueba}, que fue el nombre del proyecto que asignamos.  Una vez que
+se crea una carpeta con el nombre \verb|dune-prueba|, que fue el nombre del proyecto que asignamos.  Una vez que
 el proyecto se ha construido, podemos utilizar el comando \begin{verbatim}
 	gitpod /workspace $ ls
 \end{verbatim}
@@ -73,21 +73,21 @@ de utilizar la siguiente instrucción.
 \begin{verbatim}
 	gitpod /workspace $ cmake -S dune-prueba -B build
 \end{verbatim}
-En éste caso se indica a cmake que utilice como fuente (''S'' de source) la carpeta \textbf{dune-prueba} y
-que la construcción de la compilación se va a guardar en la carpeta \textbf{build}, por eso se escribe (''-B'' build),
+En éste caso se indica a cmake que utilice como fuente (''S'' de source) la carpeta \verb|dune-prueba| y
+que la construcción de la compilación se va a guardar en la carpeta \verb|build|, por eso se escribe (''-B'' build),
 que significa construya en la carpeta \textit{build}.
 En caso de que se quiera compilar en la misma carpeta se debe utilizar el comando:
 \begin{verbatim}
 	gitpod /workspace $ cmake -S . -B build
 \end{verbatim}
-Luego de hacer el proceso, si hacemos una lista utilizando el comando \textbf{ls}, obtendremos dos carpetas, a saber:
+Luego de hacer el proceso, si hacemos una lista utilizando el comando \verb|ls|, obtendremos dos carpetas, a saber:
 \begin{verbatim}
 	gitpod /workspace $ ls
 	gitpod /workspace $ build dune-prueba
 \end{verbatim}
-Es necesario aclarar, que nuestro código estará en la carpeta \textbf{dune-prueba}, mientras que el ejecutable y
-todos los archivos necesarios para la compilación están en la carpeta \textbf{build}.  A continuación, ingresamos
-a la carpeta \textbf{build} y usamos el comando \textbf{make}:
+Es necesario aclarar, que nuestro código estará en la carpeta \verb|dune-prueba|, mientras que el ejecutable y
+todos los archivos necesarios para la compilación están en la carpeta \verb|build|.  A continuación, ingresamos
+a la carpeta \verb|build| y usamos el comando \verb|make|:
 \begin{verbatim}
 	gitpod /workspace $ cd build
 	gitpod /workspace/build $ make

@@ -10,3 +10,5 @@ _minted*
 *.txt
 .ipynb_checkpoints
 !CMakeLists.txt
+doc/cheat-sheet/hello.md
+doc/cheat-sheet/hello.tex

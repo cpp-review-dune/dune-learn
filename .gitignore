@@ -8,6 +8,9 @@ _minted*
 *.pdf
 *.synctex.gz
 *.txt
+*.nav
+*.snm
+*.toc
 .ipynb_checkpoints
 !CMakeLists.txt
 doc/cheat-sheet/hello.md

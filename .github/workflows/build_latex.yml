@@ -3,8 +3,8 @@ name: PDFs
 on:
   push:
     branches: [master]
-    paths:
-      - doc/cheat-sheet/**
+    # paths:
+    #   - doc/cheat-sheet/**
   pull_request:
     branches: [master]
   schedule:

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.27)
 project(dune-learn CXX)
 
 if(NOT (dune-common_DIR OR dune-common_ROOT OR

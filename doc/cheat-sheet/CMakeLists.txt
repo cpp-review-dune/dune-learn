@@ -8,5 +8,5 @@
 # )
 
 add_latex_document(SOURCE main.report.tex RCFILE .latexmkrc)
-add_latex_document(SOURCE main.beamer.tex RCFILE .latexmkrc)
+#add_latex_document(SOURCE main.beamer.tex RCFILE .latexmkrc)
 # TODO: Ver https://cliutils.gitlab.io/modern-cmake/chapters/basics/programs.html

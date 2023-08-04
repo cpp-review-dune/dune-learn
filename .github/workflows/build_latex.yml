@@ -40,7 +40,7 @@ jobs:
             sudo chown -R 33333:33333 /work
             cd /work/
             cmake -B build
-            cmake --build -t dune-learn
+            cmake --build build -t dune-learn
             pushd doc/cheat-sheet
             ./run.sh
             popd
@@ -54,7 +54,7 @@ jobs:
         run: |
           sudo chown runner:docker -R .
           mkdir -p docs/public
-          mv build/doc/cheat-sheet/*.pdf docs/public
+          find build/doc/cheat-sheet/ -type f -name "*.pdf" -exec mv -i {} docs/public  \;
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
